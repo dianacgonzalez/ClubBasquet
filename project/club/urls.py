@@ -13,6 +13,7 @@ urlpatterns = [
     path("jugador/create/", views.jugador_create, name="jugador_create"),
     path("jugador/list", views.jugador_list, name="jugador_list"),
     path("jugador/borrar/<int:id>/", views.jugador_borrar, name="jugador_borrar"),
+     path("index/categoria/", views.index_categoria, name="index_categoria"),
     path("categoria/create/", views.categoria_create, name="categoria_create"),
     path("categoria/list", views.categoria_list, name="categoria_list"),
     path("categoria/borrar/<int:id>/", views.categoria_borrar, name="categoria_borrar"),

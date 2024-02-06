@@ -9,6 +9,9 @@ def index(request):
 def index_profe(request):
     return render(request, "club/index_profe.html")
 
+def index_categoria(request):
+    return render(request, "club/index_categoria.html")
+
 
 def profe_create(request):
     if request.method == "POST":
