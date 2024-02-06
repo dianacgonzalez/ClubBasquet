@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>Categorias</h2>
+    <h3>Lista Completa</h3>
+
+    <table border="1">
+        <thead>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{ categoria.nombre }}</td>
+                    <td>{{ categoria.descripcion }}</td>
+                    <td> <a href="{% url 'club:categoria_borrar' categoria.id %}">Borrar</a> </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'club:index' %}">Atrás</a></button>    
+{% endblock content %}

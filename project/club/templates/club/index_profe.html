@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Club de Basquet | Inicio
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Club de Basquet</h1>
+
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Menu Principal</h5>
+        <div class="d-flex justify-content-center gap-4">
+          <a href="{% url 'club:profe_create' %} " class="btn btn-primary w-50">Agregar Profesor</a>
+          <a href="{% url 'club:profe_list' %} " class="btn btn-primary w-50">Listar Porfes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

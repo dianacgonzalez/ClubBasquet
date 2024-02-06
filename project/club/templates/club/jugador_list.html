@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>Jugadores</h2>
+    <h3>Lista Completa</h3>
+
+    <table border="1">
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Lugar de Residencia</th>
+        </thead>
+        <tbody>
+            {% for jugador in jugadores %}
+                <tr>
+                    <td>{{ jugador.nombre }}</td>
+                    <td>{{ jugador.apellido }}</td>
+                    {% if jugador.nacimiento %}
+                        <td>{{ jugador.nacimiento }}</td>
+                    {% else %}
+                        <td>Sin registro</td>
+                    {% endif %}
+                    <td> <a href="{% url 'club:jugador_borrar' jugador.id %}">Borrar</a> </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'club:index' %}">Atrás</a></button>    
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>Equipos</h2>
+    <h3>Lista Completa</h3>
+
+    <table border="1">
+        <thead>
+            <th>Profe</th>
+            <th>Nombre del Equipo</th>
+        </thead>
+        <tbody>
+            {% for equipo in equipos %}
+                <tr>
+                    <td>{{ equipo.profe }}</td>
+                    <td>{{ equipo.nombre }}</td>
+                    <td> <a href="{% url 'club:equipo_borrar' equipo.id %}">Borrar</a> </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'club:index' %}">Atrás</a></button>    
+{% endblock content %}
