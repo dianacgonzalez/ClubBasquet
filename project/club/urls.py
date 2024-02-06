@@ -7,6 +7,7 @@ app_name = "club"
 urlpatterns = [
     path("", views.index, name="index"),
     path("index/profe/", views.index_profe, name="index_profe"),
+    path("index/jugadores/", views.index_profe, name="index_jugadores"),
     path("profe/create/", views.profe_create, name="profe_create"),
     path("profe/list", views.profe_list, name="profe_list"),
     path("profe/borrar/<int:id>/", views.profe_borrar, name="profe_borrar"),
