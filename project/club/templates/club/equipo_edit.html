@@ -1,15 +1,16 @@
 {% extends 'core/base.html' %}
 
+
 {% block content %}
-    <h2>Alta de Categoria</h2>
-    
+    <h2>EQUIPO</h2>
+    <h3>Editar Equipo</h3>
+   
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-
         <button type="submit">Guardar</button>
     </form>
 
-    <button><a href="{% url 'club:index_categoria' %}">Cancelar</a></button>    
+    <button><a href="{% url 'club:equipo_list' %}">Atrás</a></button>    
 
 {% endblock content %}

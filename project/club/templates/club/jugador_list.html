@@ -21,6 +21,7 @@
                     {% else %}
                         <td>Sin registro</td>
                     {% endif %}
+                    <td> <a href="{% url 'club:jugador_editar' jugador.id %}">Editar</a> </td>
                     <td> <a href="{% url 'club:jugador_borrar' jugador.id %}">Borrar</a> </td>
                 </tr>
             {% endfor %}
@@ -28,5 +29,5 @@
         </tbody>
     </table>
 
-    <button><a href="{% url 'club:index' %}">Atrás</a></button>    
+    <a href="{% url 'club:index_jugadores' %}" class="btn btn-secondary">Atrás</a>     
 {% endblock content %}

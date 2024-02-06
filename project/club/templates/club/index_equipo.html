@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Club de Basquet | Inicio
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Club de Basquet</h1>
+
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Menu Profesores</h5>
+        <div class="d-flex justify-content-center gap-4">
+          <a href="{% url 'club:equipo_create' %} " class="btn btn-primary w-50">Agregar Equipo</a>
+          <a href="{% url 'club:equipo_list' %} " class="btn btn-primary w-50">Listar Equipos</a>
+          <a href="{% url 'club:equipo_jugador_create' %} " class="btn btn-primary w-50">Agregar Jugadores a un Equipo</a>
+          <a href="{% url 'club:equipo_jugador_list' %} " class="btn btn-primary w-50">Listar Jugadores por Equipo</a>
+          <a href="{% url 'club:index' %}" class="btn btn-secondary">Atrás</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -9,8 +9,14 @@ def index(request):
 def index_profe(request):
     return render(request, "club/index_profe.html")
 
+def index_jugadores(request):
+    return render(request, "club/index_jugadores.html")
+
 def index_categoria(request):
     return render(request, "club/index_categoria.html")
+
+def index_equipo(request):
+    return render(request, "club/index_equipo.html")
 
 
 def profe_create(request):
@@ -130,3 +136,69 @@ def equipo_jugador_borrar(request, id):
     equipo_jugador = models.EquipoJugador.objects.get(id=id)
     equipo_jugador.delete()
     return redirect("club:equipo_jugador_list")
+
+
+def profe_editar(request, id):
+    profe_aux = models.Profe.objects.get(id=id)
+   
+    if request.method == "POST":
+        form = forms.ProfeForm(request.POST, instance=profe_aux)
+        
+        if form.is_valid():
+            profe = form.save(commit=False)
+            profe.save()
+            return profe_list(request)
+    else:
+        form = forms.ProfeForm(instance=profe_aux)
+        return render(request, "club/profe_edit.html", {"form": form, "profe_id": profe_aux.id})
+
+    return profe_list(request)
+
+
+def categoria_editar(request, id):
+    categoria_aux = models.Categoria.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = forms.CategoriaForm(request.POST, instance=categoria_aux)
+        
+        if form.is_valid():
+            categoria = form.save(commit=False)
+            categoria.save()
+            return categoria_list(request)
+    else:
+        form = forms.CategoriaForm(instance=categoria_aux)
+        return render(request, "club/categoria_edit.html", {"form": form, "categoria_id": categoria_aux.id})
+
+    return categoria_list(request)
+
+def equipo_editar(request, id):
+    equipo_aux = models.Equipo.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = forms.EquipoForm(request.POST, instance=equipo_aux)
+        
+        if form.is_valid():
+            equipo = form.save(commit=False)
+            equipo.save()
+            return equipo_list(request)
+    else:
+        form = forms.EquipoForm(instance=equipo_aux)
+        return render(request, "club/equipo_edit.html", {"form": form, "equipo_id": equipo_aux.id})
+
+    return equipo_list(request)
+
+def equipo_jugador_editar(request, id):
+    equipo_jugador_aux = models.EquipoJugador.objects.get(id=id)
+    
+    if request.method == "POST":
+        form = forms.EquipoJugadorForm(request.POST, instance=equipo_jugador_aux)
+        
+        if form.is_valid():
+            equipo = form.save(commit=False)
+            equipo.save()
+            return equipo_list(request)
+    else:
+        form = forms.EquipoJugadorForm(instance=equipo_jugador_aux)
+        return render(request, "club/equipo_jugador_edit.html", {"form": form, "equipo_jugador_id": equipo_jugador_aux.id})
+
+    return equipo_jugador_list(request)
