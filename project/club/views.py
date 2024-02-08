@@ -202,3 +202,19 @@ def equipo_jugador_editar(request, id):
         return render(request, "club/equipo_jugador_edit.html", {"form": form, "equipo_jugador_id": equipo_jugador_aux.id})
 
     return equipo_jugador_list(request)
+
+def jugador_editar(request, id):
+    jugador_aux = models.Jugador.objects.get(id=id)
+   
+    if request.method == "POST":
+        form = forms.JugadorForm(request.POST, instance=jugador_aux)
+        
+        if form.is_valid():
+            jugador = form.save(commit=False)
+            jugador.save()
+            return jugador_list(request)
+    else:
+        form = forms.JugadorForm(instance=jugador_aux)
+        return render(request, "club/jugador_edit.html", {"form": form, "jugador_id": jugador_aux.id})
+
+    return jugador_list(request)

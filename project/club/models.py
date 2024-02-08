@@ -1,15 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Pais(models.Model):
-    nombre = models.CharField(max_length=100)
+#class Pais(models.Model):
+#    nombre = models.CharField(max_length=100)
 
-    def __str__(self) -> str:
-        return self.nombre
+#    def __str__(self) -> str:
+#        return self.nombre
 
-    class Meta:
-        verbose_name = "país"
-        verbose_name_plural = "países"
+#    class Meta:
+#        verbose_name = "país"
+#        verbose_name_plural = "países"
 
 
 class Profe(models.Model):
@@ -17,9 +17,9 @@ class Profe(models.Model):
     apellido = models.CharField(max_length=100)
     nacimiento = models.DateField(null=True, blank=True)
     lugar_residencia = models.CharField(max_length=100)
-    pais_origen_id = models.ForeignKey(
-        Pais, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="País de origen"
-    )
+   # pais_origen_id = models.ForeignKey(
+   #     Pais, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="País de origen"
+   # )
 
     def __str__(self) -> str:
         return f"{self.apellido}, {self.nombre}"
@@ -29,9 +29,9 @@ class Jugador(models.Model):
     apellido = models.CharField(max_length=100)
     nacimiento = models.DateField(null=True, blank=True)
     lugar_residencia = models.CharField(max_length=100)
-    pais_origen_id = models.ForeignKey(
-        Pais, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="País de origen"
-    )
+   # pais_origen_id = models.ForeignKey(
+   #     Pais, null=True, blank=True, on_delete=models.SET_NULL, verbose_name="País de origen"
+   #)
 
     def __str__(self) -> str:
         return f"{self.apellido}, {self.nombre} - {self.lugar_residencia}"

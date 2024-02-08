@@ -15,8 +15,9 @@
                 <tr>
                     <td>{{ categoria.nombre }}</td>
                     <td>{{ categoria.descripcion }}</td>
-                    <td> <a href="{% url 'club:categoria_editar' categoria.id %}">Editar</a> </td>
-                    <td> <a href="{% url 'club:categoria_borrar' categoria.id %}">Borrar</a> </td>
+                    <td> <a href="{% url 'club:categoria_editar' categoria.id %}" class="btn btn-primary">Editar</a> </td>
+                    <td> <a href="{% url 'club:categoria_borrar' categoria.id %}" class="btn btn-secondary">Borrar</a> </td>
+                    
                 </tr>
             {% endfor %}
 

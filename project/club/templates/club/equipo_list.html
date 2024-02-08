@@ -15,8 +15,8 @@
                 <tr>
                     <td>{{ equipo.profe }}</td>
                     <td>{{ equipo.nombre }}</td>
-                    <td> <a href="{% url 'club:equipo_editar' equipo.id %}">Editar</a> </td>
-                    <td> <a href="{% url 'club:equipo_borrar' equipo.id %}">Borrar</a> </td>
+                    <td> <a href="{% url 'club:equipo_editar' equipo.id %}" class="btn btn-primary">Editar</a> </td>
+                    <td> <a href="{% url 'club:equipo_borrar' equipo.id %}" class="btn btn-secondary">Borrar</a> </td>
                 </tr>
             {% endfor %}
 
